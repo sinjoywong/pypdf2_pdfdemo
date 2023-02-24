@@ -24,19 +24,16 @@ def merge_every_two_page_in_one_page(num_pages):
 
 page_odd = pdf.pages[0]
 page_odd.add_transformation(op_scale_to_half)
-page_odd_rotated = page_odd.rotate(90)
 
 page_even = pdf.pages[1]
 page_even.add_transformation(op_scale_to_half)
 page_even.add_transformation(op_translate_to_right_half_of_a4_paper)
-page_even_rotated = page_even.rotate(0)
-#page2_media_box = page2_rotated.mediabox
-page_even_rotated.mediabox.upper_right = (page_even_rotated.mediabox.right *1, page_even_rotated.mediabox.top )
+#page_even_rotated = page_even.rotate(0)
 
 # add blank page of A4 size:
 blank_page = pdf_writer.add_blank_page(297,210)
-blank_page.merge_page(page_odd_rotated)
-blank_page.merge_page(page_even_rotated)
+blank_page.merge_page(page_odd)
+blank_page.merge_page(page_even)
 
 merge_every_two_page_in_one_page(num_pages)
 
