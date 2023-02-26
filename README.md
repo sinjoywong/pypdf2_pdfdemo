@@ -1,0 +1,3 @@
+# pypdf2_pdfdemo
+基于python3和pypdf2
+能够一键将竖排的A4文档转成每页2张横排的文档
